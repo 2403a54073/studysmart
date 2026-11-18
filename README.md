@@ -1,1 +1,307 @@
-# studysmart
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyFlow - Study Smarter</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 10%;
+            background: white;
+        }
+
+        nav h2 {
+            color: #635bff;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 110px 20px;
+            background: linear-gradient(135deg, #635bff, #8b5cf6);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: white;
+            color: #635bff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e0e7ff;
+        }
+
+        section {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #635bff;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        #contact {
+            background: #eef2ff;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        form button {
+            background: #635bff;
+            color: white;
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #1e293b;
+            color: white;
+        }
+
+        @media(max-width: 600px) {
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>StudyFlow</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+
+        <h1>Study Smarter, Not Harder.</h1>
+
+        <p>
+            Organize your tasks, manage your time and achieve
+            your academic goals with StudyFlow.
+        </p>
+
+        <a href="#contact" class="btn">Get Started</a>
+
+    </div>
+
+
+    <!-- About Section -->
+    <section>
+
+        <h2>About StudyFlow</h2>
+
+        <p>
+            StudyFlow is a smart productivity platform designed
+            for students. It helps students organize their daily
+            activities, track their progress and improve productivity.
+        </p>
+
+    </section>
+
+
+    <!-- Features Section -->
+    <section id="features">
+
+        <h2>Our Features</h2>
+
+        <div class="features">
+
+            <div class="card">
+                <h3>Task Management</h3>
+                <p>
+                    Organize assignments, projects and daily
+                    activities in one place.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Time Management</h3>
+                <p>
+                    Plan your study schedule and use your time
+                    more effectively.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Progress Tracking</h3>
+                <p>
+                    Monitor your achievements and stay motivated
+                    towards your goals.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Form -->
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Have questions? Get in touch with us.</p>
+
+        <form id="contactForm">
+
+            <input type="text"
+                   id="name"
+                   placeholder="Your Name"
+                   required>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Your Email"
+                   required>
+
+            <textarea id="message"
+                      placeholder="Your Message"
+                      rows="5"
+                      required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message
+            </button>
+
+        </form>
+
+        <p id="response"></p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 StudyFlow. All Rights Reserved.</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        document.getElementById("contactForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let subject = encodeURIComponent("StudyFlow Contact");
+            let body = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\nMessage: " + message
+            );
+
+            document.getElementById("response").innerText =
+                "Opening your email application...";
+
+            window.location.href =
+                "mailto:your-email@example.com?subject=" +
+                subject + "&body=" + body;
+
+        });
+
+    </script>
+
+</body>
+</html>
